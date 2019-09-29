@@ -19,7 +19,6 @@ func NewDbConnection() (*sql.DB, error) {
 		Host:       "localhost",
 		DisableSSL: true,
 	}
-	log.Println(conn.ConnectionURL())
 	return conn.Open()
 }
 
