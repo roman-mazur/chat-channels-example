@@ -8,18 +8,18 @@ import (
 )
 
 type Connection struct {
-	DbName string
+	DbName         string
 	User, Password string
-	Host string
-	DisableSSL bool
+	Host           string
+	DisableSSL     bool
 }
 
 func (c *Connection) ConnectionURL() string {
 	dbUrl := &url.URL{
-		Scheme: "postgress",
-		Host: c.Host,
-		User: url.UserPassword(c.User, c.Password),
-		Path: c.DbName,
+		Scheme: "postgres",
+		Host:   c.Host,
+		User:   url.UserPassword(c.User, c.Password),
+		Path:   c.DbName,
 	}
 	if c.DisableSSL {
 		dbUrl.RawQuery = url.Values{
@@ -30,5 +30,5 @@ func (c *Connection) ConnectionURL() string {
 }
 
 func (c *Connection) Open() (*sql.DB, error) {
-	return sql.Open("postgress", c.ConnectionURL())
+	return sql.Open("postgres", c.ConnectionURL())
 }

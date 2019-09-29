@@ -32,12 +32,12 @@ func (s *ChatApiServer) Start() error {
 	handler := new(http.ServeMux)
 	handler.HandleFunc("/channels", s.ChannelsHandler)
 
-	server := &http.Server{
-		Addr:              fmt.Sprintf(":%d", s.Port),
-		Handler:           handler,
+	s.server = &http.Server{
+		Addr:    fmt.Sprintf(":%d", s.Port),
+		Handler: handler,
 	}
 
-	return server.ListenAndServe()
+	return s.server.ListenAndServe()
 }
 
 // Stops will shut down previously started HTTP server.

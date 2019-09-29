@@ -10,7 +10,7 @@ func TestDbConnection_ConnectionURL(t *testing.T) {
 		Host:       "localhost",
 		DisableSSL: true,
 	}
-	if conn.ConnectionURL() != "postgress://user1:pass1@localhost/db1?sslmode=disable" {
+	if conn.ConnectionURL() != "postgres://user1:pass1@localhost/db1?sslmode=disable" {
 		t.Error("Unexpected connection string")
 	}
 }
