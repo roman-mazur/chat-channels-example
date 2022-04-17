@@ -4,13 +4,10 @@
 ```shell script
 go run ./cmd/server
 ```
-з директорії `server`.
 
-- Приклади реалізації сценаріїв на базі клієнтського SDK запускаються через команду
+- Клієнт запускається командою
 ```shell script
-npm install
-node examples.js
+go run ./cmd/client
 ```
-з директорії `client`.
 
 - Папка `db` містить SQL скрипти для ініціалізації БД сервера.
